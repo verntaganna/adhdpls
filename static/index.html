@@ -46,6 +46,39 @@
   .chip.new { border-style: dashed; }
   .chip .del { margin-left: 8px; color: #ff7a7a; }
   #newTag { border-radius: 999px; padding: 6px 12px; font-size: 13px; width: 150px; }
+
+  /* ---- phone view: only applies on narrow screens, desktop is unchanged ---- */
+  html { -webkit-text-size-adjust: 100%; }
+  @media (max-width: 640px) {
+    body { font-size: 16px; line-height: 1.5; }
+    .wrap { padding: 12px 12px 40px; }
+    h1 { font-size: 24px; }
+    /* 16px+ inputs stop mobile browsers zooming the page on focus */
+    input, textarea, select, button { font-size: 16px; }
+    /* search gets its own full-width row, the two buttons share the next one */
+    .bar { flex-wrap: wrap; }
+    #q { flex: 1 1 100%; min-height: 44px; }
+    .bar button { flex: 1 1 0; min-height: 44px; }
+    .chip { font-size: 15px; padding: 8px 14px; min-height: 40px; }
+    #newTag { font-size: 16px; width: 170px; }
+    /* one column of cards, easy to read at a glance */
+    .grid { column-width: auto; column-count: 1; }
+    .card { padding: 14px; }
+    .meta { font-size: 13px; padding-right: 84px; }  /* keep the date clear of the edit/delete buttons */
+    .tag { font-size: 14px; padding: 4px 10px; margin: 0 6px 6px 0; display: inline-block; }
+    .x { min-width: 44px; min-height: 44px; top: 2px; font-size: 18px; }
+    .edit { right: 40px; }
+    .card .x.del { right: 0; }
+    .item { padding: 8px 0; gap: 12px; }
+    .item input { width: 26px; height: 26px; flex: 0 0 auto; }
+    .remind { flex-wrap: wrap; gap: 4px 12px; font-size: 14px; }
+    /* the drag-to-move handle is pointless on a phone, so the form just fills the screen */
+    #dragbar { display: none; }
+    dialog { width: calc(100vw - 16px); max-height: 94dvh; padding: 14px; }
+    label { font-size: 13px; }
+    .row > button, .row > input, .row > select { min-height: 44px; }
+    input[type=datetime-local] { min-height: 44px; }
+  }
 </style>
 </head>
 <body>
